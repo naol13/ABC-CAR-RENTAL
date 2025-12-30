@@ -1,0 +1,9 @@
+[user]
+	gmail = naolamarech25@gmail.com
+	email = naolamarech25@gmail.com
+	name = naol13
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
