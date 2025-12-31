@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<!-- Root BorderPane: Left = Sidebar, Center = Content Area -->
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.carrentalmanagementsystem.controller.CustomerDashboardController"
+            stylesheets="@style.css" fx:id="rootPane">
+
+    <!-- SIDEBAR (Full Height) -->
+    <left>
+        <VBox fx:id="sidebarVBox" alignment="TOP_CENTER" styleClass="sidebar" spacing="15" prefWidth="60"
+              onMouseEntered="#handleSidebarMouseEntered" onMouseExited="#handleSidebarMouseExited">
+            <!-- Reduced top padding -->
+            <padding>
+                <Insets top="20" bottom="30"/>
+            </padding>
+
+            <!-- Title Container (No Arrow) -->
+            <VBox alignment="CENTER" spacing="5">
+                <Label fx:id="sidebarTitleLabel" text="ABC" styleClass="sidebar-title" style="-fx-font-size: 14px;"/>
+            </VBox>
+
+            <VBox styleClass="sidebar-menu" VBox.vgrow="ALWAYS">
+                <Button fx:id="availableCarsBtn" text="🚗" styleClass="sidebar-button" maxWidth="Infinity" style="-fx-background-color: rgba(255, 255, 255, 0.2);"/>
+                <Button fx:id="myRentalsBtn" text="📋" onAction="#handleMyRentals" styleClass="sidebar-button" maxWidth="Infinity"/>
+                <Button fx:id="editProfileBtn" text="👤" onAction="#handleEditProfile" styleClass="sidebar-button" maxWidth="Infinity"/>
+            </VBox>
+
+            <VBox spacing="10" style="-fx-padding: 0 10;">
+                <Button fx:id="logoutBtn" text="🔓" onAction="#handleLogout" styleClass="sidebar-button" maxWidth="Infinity"/>
+            </VBox>
+        </VBox>
+    </left>
+
+    <!-- CONTENT AREA -->
+    <center>
+        <BorderPane fx:id="contentPane">
+            <top>
+                <!-- Glass Top Bar -->
+                <HBox alignment="CENTER_RIGHT" spacing="20" style="-fx-padding: 15 30 15 15;">
+                    <!-- Notification Icon (Optional for Customer) -->
+                    <Button text="🔔" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 18px; -fx-cursor: hand;"/>
+
+                    <!-- User Profile Section -->
+                    <HBox alignment="CENTER" spacing="10" styleClass="glass-pane" style="-fx-padding: 5 15; -fx-background-radius: 30; -fx-border-radius: 30;">
+                        <Label text="👤" style="-fx-text-fill: white; -fx-font-size: 16px;"/>
+                        <VBox alignment="CENTER_LEFT">
+                            <Label fx:id="welcomeLabel" text="Welcome, Customer" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 12px;"/>
+                            <Label text="Valued Member" style="-fx-text-fill: #cccccc; -fx-font-size: 10px;"/>
+                        </VBox>
+                    </HBox>
+                </HBox>
+            </top>
+
+            <center>
+                <VBox spacing="20" style="-fx-padding: 20;">
+                    <Label text="Find Your Perfect Ride" styleClass="h1"/>
+
+                    <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-border-color: transparent;" VBox.vgrow="ALWAYS">
+                        <content>
+                            <TilePane fx:id="carTilePane" hgap="20" vgap="20" style="-fx-background-color: transparent;">
+                                <padding>
+                                    <Insets bottom="20.0" left="10.0" right="20.0" top="10.0"/>
+                                </padding>
+                            </TilePane>
+                        </content>
+                    </ScrollPane>
+                </VBox>
+            </center>
+        </BorderPane>
+    </center>
+
+</BorderPane>

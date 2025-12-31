@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" spacing="20.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.carrentalmanagementsystem.controller.CustomerRentalConfirmationController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <Label text="Confirm Your Rental">
+        <font>
+            <Font size="24.0" />
+        </font>
+    </Label>
+
+    <VBox alignment="CENTER_LEFT" spacing="10.0">
+        <Label styleClass="h2" text="Car Details" />
+        <Label fx:id="carSummaryLabel" text="Make: Model (Year)" />
+        <Label fx:id="dailyRateSummaryLabel" text="Daily Rate: $0.00" />
+
+        <Label styleClass="h2" text="Rental Period" />
+        <Label fx:id="datesSummaryLabel" text="From: YYYY-MM-DD To: YYYY-MM-DD" />
+        <Label fx:id="durationSummaryLabel" text="Duration: 0 days" />
+        <Label fx:id="totalCostSummaryLabel" text="Total Cost: $0.00" />
+
+        <Label styleClass="h2" text="Your Information" />
+        <!-- Removed ID Number Summary Label
+        <Label fx:id="idNumberSummaryLabel" text="ID Number: " />
+        -->
+        <Label fx:id="addressSummaryLabel" text="Address: " />
+    </VBox>
+
+    <HBox alignment="CENTER" spacing="10.0">
+        <Button onAction="#handleBack" styleClass="button-secondary" text="Back" />
+        <Button onAction="#handleConfirmAndPay" styleClass="button-primary" text="Confirm " />
+    </HBox>
+</VBox>
