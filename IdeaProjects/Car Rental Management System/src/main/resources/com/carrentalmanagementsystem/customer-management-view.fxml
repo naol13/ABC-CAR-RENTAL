@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.carrentalmanagementsystem.controller.CustomerManagementController"
+            stylesheets="@style.css"> <!-- Added stylesheet reference -->
+    <top>
+        <VBox spacing="15" style="-fx-padding: 20;">
+            <Label text="Customer Management" styleClass="h1"/>
+            <!-- Removed description label -->
+            
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <TextField fx:id="searchField" promptText="Search by name or contact" HBox.hgrow="ALWAYS"/>
+                <Button text="Add New Customer" onAction="#handleAddNewCustomer"/>
+            </HBox>
+        </VBox>
+    </top>
+    
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-border-color: transparent;">
+            <content>
+                <TilePane fx:id="customerTilePane" hgap="20" vgap="20">
+                    <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+                    </padding>
+                </TilePane>
+            </content>
+        </ScrollPane>
+    </center>
+</BorderPane>

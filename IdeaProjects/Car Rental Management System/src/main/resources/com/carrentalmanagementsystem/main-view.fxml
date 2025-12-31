@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<!-- Root is now a BorderPane where Left is Sidebar, Center is Content Area -->
+<BorderPane fx:id="rootPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.carrentalmanagementsystem.controller.MainController">
+
+    <!-- SIDEBAR (Full Height) -->
+    <left>
+        <VBox fx:id="sidebarVBox" alignment="TOP_CENTER" styleClass="sidebar" spacing="15" prefWidth="60"
+              onMouseEntered="#handleSidebarMouseEntered" onMouseExited="#handleSidebarMouseExited">
+            <!-- Reduced top padding -->
+            <padding>
+                <Insets top="20" bottom="30"/>
+            </padding>
+
+            <!-- Title Container (No Arrow) -->
+            <VBox alignment="CENTER" spacing="5">
+                <Label fx:id="sidebarTitleLabel" text="ABC" styleClass="sidebar-title" style="-fx-font-size: 14px;"/>
+            </VBox>
+
+            <VBox styleClass="sidebar-menu" VBox.vgrow="ALWAYS">
+                <Button fx:id="dashboardBtn" text="📊" onAction="#showDashboard" styleClass="sidebar-button" maxWidth="Infinity"/>
+                <Button fx:id="carsBtn" text="🚘" onAction="#showCarManagement" styleClass="sidebar-button" maxWidth="Infinity"/>
+                <Button fx:id="customersBtn" text="👥" onAction="#showCustomerManagement" styleClass="sidebar-button" maxWidth="Infinity"/>
+                <Button fx:id="rentalsBtn" text="📋" onAction="#showRentalManagement" styleClass="sidebar-button" maxWidth="Infinity"/>
+                <Button fx:id="maintenanceBtn" text="🛠" onAction="#showMaintenanceManagement" styleClass="sidebar-button" maxWidth="Infinity"/>
+                <Button fx:id="gpsBtn" text="📍" onAction="#showGPSTracker" styleClass="sidebar-button" maxWidth="Infinity"/>
+            </VBox>
+
+            <VBox spacing="10" style="-fx-padding: 0 10;">
+                <Button fx:id="logoutBtn" text="🔓" onAction="#handleLogout" styleClass="sidebar-button" maxWidth="Infinity"/>
+                <Button fx:id="exitBtn" text="❌" onAction="#handleClose" styleClass="sidebar-exit-button" maxWidth="Infinity"/>
+            </VBox>
+        </VBox>
+    </left>
+
+    <!-- MAIN CONTENT AREA (Top Bar + Dynamic View) -->
+    <center>
+        <BorderPane fx:id="borderPane">
+            <top>
+                <!-- Glass Top Bar -->
+                <HBox alignment="CENTER_RIGHT" spacing="20" style="-fx-padding: 15 30 15 15;">
+                    <!-- Notification Icon -->
+                    <Button fx:id="notificationButton" text="🔔" onAction="#handleNotificationClick" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 18px; -fx-cursor: hand;"/>
+
+                    <!-- User Profile Section -->
+                    <HBox alignment="CENTER" spacing="10" styleClass="glass-pane" style="-fx-padding: 5 15; -fx-background-radius: 30; -fx-border-radius: 30;">
+                        <Label text="👤" style="-fx-text-fill: white; -fx-font-size: 16px;"/>
+                        <VBox alignment="CENTER_LEFT">
+                            <Label text="Admin User" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 12px;"/>
+                            <Label text="Administrator" style="-fx-text-fill: #cccccc; -fx-font-size: 10px;"/>
+                        </VBox>
+                    </HBox>
+                </HBox>
+            </top>
+            <!-- Center content will be injected by controller into 'borderPane' center -->
+        </BorderPane>
+    </center>
+
+</BorderPane>

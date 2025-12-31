@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.carrentalmanagementsystem.controller.CustomerInitiateRentalController"
+      stylesheets="@style.css">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <Label text="Initiate Your Rental">
+        <font>
+            <Font size="24.0" />
+        </font>
+    </Label>
+
+    <VBox spacing="10.0" alignment="CENTER">
+        <Label fx:id="carDetailsLabel" text="Car: [Make Model Year]" styleClass="h2" />
+        <Label fx:id="dailyRateLabel" text="Daily Rate: $0.00" styleClass="label-bold" />
+    </VBox>
+
+    <GridPane hgap="10" vgap="10" alignment="CENTER">
+        <Label text="Rental Start Date:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+        <DatePicker fx:id="startDatePicker" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+
+        <Label text="Rental End Date:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+        <DatePicker fx:id="endDatePicker" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+    </GridPane>
+
+    <VBox spacing="10.0" alignment="CENTER">
+        <Label fx:id="durationLabel" text="Duration: 0 days" />
+        <Label fx:id="totalCostLabel" text="Total Cost: $0.00" styleClass="h2" />
+    </VBox>
+
+    <HBox spacing="10.0" alignment="CENTER">
+        <Button onAction="#handleNext" text="Next" styleClass="button-primary" /> <!-- Corrected onAction to handleNext -->
+        <Button onAction="#handleCancel" text="Cancel" styleClass="button-secondary" />
+    </HBox>
+</VBox>

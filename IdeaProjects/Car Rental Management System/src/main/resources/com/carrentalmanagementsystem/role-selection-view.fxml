@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" spacing="20.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.carrentalmanagementsystem.controller.RoleSelectionController"> <!-- Added stylesheet reference -->
+    <padding>
+        <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+    </padding>
+
+    <Label text="Welcome!">
+        <font>
+            <Font name="System Bold" size="24.0" />
+        </font>
+    </Label>
+
+    <Label prefWidth="258.0" />
+     <Button onAction="#handleAdminLogin" prefHeight="40.0" prefWidth="200.0" text=" Admin" />
+
+    <VBox alignment="CENTER" spacing="15.0" VBox.vgrow="ALWAYS">
+        <Button onAction="#handleCustomerLogin" prefHeight="40.0" prefWidth="200.0" text=" Customer" />
+    </VBox>
+</VBox>
