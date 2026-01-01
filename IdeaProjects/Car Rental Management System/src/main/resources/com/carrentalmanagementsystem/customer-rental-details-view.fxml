@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.carrentalmanagementsystem.controller.CustomerRentalDetailsController"
+      stylesheets="@style.css">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <Label text="Your Details for Rental">
+        <font>
+            <Font size="24.0" />
+        </font>
+    </Label>
+
+    <VBox spacing="15.0" alignment="CENTER_LEFT">
+        <Label text="Driver's License / National ID Information" styleClass="h2" />
+        <GridPane hgap="10" vgap="10">
+            <!-- Removed ID Number Label and TextField
+            <Label text="ID Number:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+            <TextField fx:id="idNumberField" promptText="Enter ID Number" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+            -->
+
+            <Label text="Upload ID Picture:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+            <HBox spacing="10" GridPane.rowIndex="0" GridPane.columnIndex="1">
+                <Button onAction="#handleBrowseIdImage" text="Browse..." />
+                <ImageView fx:id="idImageView" fitHeight="50" fitWidth="50" preserveRatio="true" />
+            </HBox>
+        </GridPane>
+
+        <Label text="Your Address" styleClass="h2" />
+        <GridPane hgap="10" vgap="10">
+            <Label text="Street:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+            <TextField fx:id="streetField" promptText="Street Address" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+
+            <Label text="City:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+            <TextField fx:id="cityField" promptText="City" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+
+            <Label text="State/Province:" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+            <TextField fx:id="stateField" promptText="State/Province" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+
+            <!-- Removed Postal Code Label and TextField
+            <Label text="Postal Code:" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+            <TextField fx:id="postalCodeField" promptText="Postal Code" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+            -->
+        </GridPane>
+    </VBox>
+
+    <HBox spacing="10.0" alignment="CENTER">
+        <Button onAction="#handleBack" text="Back" styleClass="button-secondary" />
+        <Button onAction="#handleNext" text="Next" styleClass="button-primary" />
+    </HBox>
+</VBox>
